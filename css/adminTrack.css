@@ -1,0 +1,109 @@
+/*****Element Styling*******/
+body {
+	background-color: rgb(198,185,168);
+}
+
+h1 {
+	font-family: 'Audiowide', cursive;
+}
+
+h3,
+h4,
+label,
+input,
+table th,
+ul li {
+	font-family: 'Gafata', sans-serif;
+}
+
+h3 {
+	font-weight: bolder;
+}
+
+table td,
+table th {
+	border-top: none !important;
+}
+
+footer {
+	background-color: rgb(215,119,83);
+}
+
+/******Header Classes******/
+
+.header {
+	background-color: rgb(215,119,83);
+
+}
+
+.app-title {
+	color: maroon;
+}
+
+.intranet-page {
+
+}
+
+/********Main Content IDs*************/
+
+#admin {
+	margin-right: 45%;
+	margin-left: 45%;
+}
+
+/********Main Content Classes**********/
+
+.user-add {
+	box-shadow: 1px, maroon;
+}
+
+.admin-radio {
+	font-family: 'Gafata', sans-serif;
+	font-weight: 700;
+	padding-left: 10px;
+}
+
+.search-buttons {
+	padding-top: 5px;
+	padding-bottom: 10px;
+}
+
+.results{
+	margin-bottom: 5%;
+}
+
+.result-area {
+	background-color: rgb(237,234,228);
+}
+
+/*******Footer Classes*******/
+
+.footer-text {
+	font-family: 'Gafata', sans-serif;
+	color: maroon;
+	float: center;
+}
+
+/****Media Queries****/
+
+@media screen and (max-width: 992px) {
+	.intranet-page {
+		display: none;
+	}
+
+	.footer-text {
+		float: none;
+	}
+
+/*	.app-title {
+		
+	}*/
+
+	.user-add,
+	.reports-search {
+		padding-bottom: 5%;
+		border-bottom-style: dotted;
+	}
+}
+
+	
