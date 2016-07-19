@@ -1,24 +1,25 @@
 <?php
 
 //create a user
-function add_user($id,$firstName,$lastName,$userName,$dept,$status) {
-	include("testconnection.php");
+function add_user($firstName,$lastName,$userName,$dept,$status) {
+	
+	include("connection.php"); 	
 	
 	try {
-	   	
-    	$sql = "INSERT INTO `users` (`id`, `first_name`, `last_name`, `username`, `dept`, `admin`) VALUES (:id,:firstName,:lastName,:userName,:dept,:status";
+    	$sql = "INSERT INTO users(first_name, last_name, username, dept, admin) VALUES (:firstName, :lastName, :userName, :dept, :status)";
 		$addUser = $db->prepare($sql);
-		$addUser->bindVALUE(':id',$id);
-		$addUser->bindVALUE(':firstName',$firstName);
-		$addUser->bindVALUE(':lastName',$lastName);
-		$addUser->bindVALUE(':userName',$userName);
-		$addUser->bindVALUE(':dept',$dept);
-		$addUser->bindVALUE(':status',$status);
-		$addUser->execute();
-	    // 	$results->execute();
-			// var_dump($dept);
+		$addUser->bindParam(":firstName", $firstName);
+		$addUser->bindParam(":lastName", $lastName);
+		$addUser->bindParam(":userName", $userName);
+		$addUser->bindParam(":dept", $dept);
+		$addUser->bindParam(":status", $status);
+		if ($addUser->execute()) {
+			return "done";
+		} else {
+			return $addUser->errorInfo();
+		}
 	} catch (Exception $e) {
-		echo "Addition to database failed";
+		return "Addition to database failed: ".$e.getMessage();
 	}
 }
 
@@ -50,8 +51,8 @@ function by_dept($dept,$deptstate) {
 			$sql." 
 			WHERE dept = :dept
 			AND admin = :deptstate");
-		$results->bindVALUE(":dept",$dept);
-		$results->bindVALUE(":deptstate",$deptstate);
+		$results->bindParam(":dept",$dept);
+		$results->bindParam(":deptstate",$deptstate);
 		$results->execute();
 	} catch (Exception $e) {
 		echo "BAD QUERY";

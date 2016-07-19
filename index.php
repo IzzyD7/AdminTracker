@@ -6,9 +6,9 @@ $firstName = null;
 $lastName = null;
 $userName = null;
 $addDept = null;
-$addStatus = "n";
+$addStatus = "";
 $arrayName = null;
-$addUser = null;
+$addUser = "setVar";
 $result = null;
 $allStatus = null;
 $dept = null;
@@ -25,8 +25,7 @@ if (isset($_POST["addgo"])) {
 	if (!isset($_POST["fn"]) || !isset($_POST["ln"]) || !isset($_POST["un"]) || !isset($_POST["addDept"]) || !isset($_POST["addStatus"])) {
 		$result = "Please fill out form completely.";
 	} else {
-		$addUser = add_user($id,$firstName,$lastName,$userName,$addDept,$addStatus);
-		var_dump($addUser);
+		$addUser = add_user($firstName,$lastName,$userName,$addDept,$addStatus);
 		$result = "New record was created successfully.";
 	}
 }	
@@ -258,7 +257,7 @@ if (isset($_POST["r"])) {
 							<form method="" action="">
 
 							</form>
-						</div> -->
+						</div>-->
 					</div>
 					
 					<div class="reports-search col-md-6">
